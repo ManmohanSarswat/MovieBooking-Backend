@@ -48,10 +48,10 @@ public class WebSecurityConfiguration{
 				// disabling csrf since we won't use form login
 				.csrf().disable()
 				// giving permission to every request for /login endpoint
-				.authorizeRequests().requestMatchers("/api/v1.0/moviebooking/forgot/**", "/api/v1.0/moviebooking/register", "/api/v1.0/moviebooking/all",  "/api/v1.0/moviebooking/login", "/api/v1.0/moviebooking/movie/search/**")
+				.authorizeRequests().antMatchers("/api/v1.0/moviebooking/forgot/**", "/api/v1.0/moviebooking/register", "/api/v1.0/moviebooking/all",  "/api/v1.0/moviebooking/login", "/api/v1.0/moviebooking/movie/search/**")
 				.permitAll()
 				// for everything else, the user has to be authenticated
-				.and().authorizeRequests().requestMatchers("/api/v1.0/moviebooking/movies/search/**").permitAll()
+				.and().authorizeRequests().antMatchers("/api/v1.0/moviebooking/movies/search/**").permitAll()
 				.anyRequest().authenticated().and().exceptionHandling()
 				.authenticationEntryPoint(authenticationEntryPoint)
 				// setting stateless session, because we choose to implement Rest API

@@ -33,7 +33,7 @@ public class TicketsService {
 				ticketPojo.getTotNoOfTickets(), ticketPojo.getSeatNo());
 		MovieIdentity identity = new MovieIdentity(ticketPojo.getMovieName(), ticketPojo.getTheatreName());
 		Optional<Movie> opMovie = movieRepository.findById(identity);
-		if (opMovie.isEmpty()) {
+		if (!opMovie.isPresent()) {
 			log.warn("Movie information not found in the database for the request {}", ticketPojo);
 			throw new CustomException("Movie information not found");
 		}
@@ -64,7 +64,7 @@ public class TicketsService {
 	public SimpleResponse updateTicketStatus(TicketPojo ticketPojo) throws CustomException {
 		MovieIdentity identity = new MovieIdentity(ticketPojo.getMovieName(), ticketPojo.getTheatreName());
 		Optional<Tickets> opTickets = ticketRepository.findById(identity);
-		if (opTickets.isEmpty()) {
+		if (!opTickets.isPresent()) {
 			log.warn("Unable to update status -> Ticket information not found for the request {}", ticketPojo);
 			throw new CustomException("Ticket information not found");
 		}

@@ -3,11 +3,7 @@ package com.moviebooking.model;
 
 import java.util.List;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.IdClass;
-import jakarta.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "tickets")
@@ -23,7 +19,8 @@ public class Tickets {
 
 	private int noOfTicketsBooked;
 	
-	@Column(length=Integer.MAX_VALUE)
+	@Column(length=1000000000)
+	@ElementCollection
 	private List<String> seatNo;
 
 	public String getMovieName() {

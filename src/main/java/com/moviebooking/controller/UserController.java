@@ -20,7 +20,7 @@ import com.moviebooking.service.UserService;
 import com.moviebooking.wrapperclasses.SimpleResponse;
 import com.moviebooking.wrapperclasses.UserPojo;
 
-import jakarta.annotation.PostConstruct;
+import javax.annotation.PostConstruct;
 
 @RestController
 @RequestMapping("api/v1.0/moviebooking")

@@ -81,7 +81,7 @@ public class UserService {
 
 	public SimpleResponse forgotPassword(User request) throws CustomException {
 		Optional<User> opUser = userRepository.findById(request.getLoginId());
-		if (opUser.isEmpty()) {
+		if (!opUser.isPresent()) {
 			log.warn("User with username {} not found", request.getLoginId());
 			throw new CustomException("Username not found");
 		}

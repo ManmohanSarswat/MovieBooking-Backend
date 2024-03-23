@@ -8,9 +8,9 @@ import org.springframework.stereotype.Component;
 import org.springframework.security.core.AuthenticationException;
 
 import io.jsonwebtoken.MalformedJwtException;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 @Component
 public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint {
